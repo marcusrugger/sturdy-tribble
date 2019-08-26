@@ -2,7 +2,6 @@ using System;
 
 namespace SturdyTribble.Primitive
 {
-
     public class PointDouble
     {
         readonly double x;
@@ -18,6 +17,12 @@ namespace SturdyTribble.Primitive
         {
             this.x = x;
             this.y = y;
+        }
+
+        public PointDouble(PointDouble other)
+        {
+            this.x = other.x;
+            this.y = other.y;
         }
 
         public PointDouble(PointPolar pc)
@@ -52,11 +57,6 @@ namespace SturdyTribble.Primitive
             return new PointDouble(x + other.x, y + other.y);
         }
 
-        public PointDouble Subtract(PointDouble other)
-        {
-            return new PointDouble(x - other.x, y - other.y);
-        }
-
         public PointDouble Scale(double scale)
         {
             return new PointDouble(scale * x, scale * y);
@@ -64,7 +64,12 @@ namespace SturdyTribble.Primitive
 
         public PointDouble Scale(PointDouble scale)
         {
-            return new PointDouble(scale.X * x, scale.Y * y);
+            return new PointDouble(scale.x * x, scale.y * y);
+        }
+
+        public override string ToString()
+        {
+            return "(" + x + ", " + y + ")";
         }
 
         public PointInteger ToPointInteger()

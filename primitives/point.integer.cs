@@ -18,8 +18,14 @@ namespace SturdyTribble.Primitive
             this.x = x;
             this.y = y;
         }
+
+        public PointInteger(PointInteger other)
+        {
+            this.x = other.x;
+            this.y = other.y;
+        }
         
-        public PointInteger(PointPolar p) : this(p.ToPointDouble())
+        public PointInteger(PointPolar p) : this(p.ToPointInteger())
         {}
 
         public PointInteger(PointDouble p)
@@ -38,7 +44,12 @@ namespace SturdyTribble.Primitive
             return new PointInteger(this.x + x, this.y + y);
         }
 
-        public PointInteger ToPoint()
+        public override string ToString()
+        {
+            return "(" + x + ", " + y + ")";
+        }
+
+        public PointInteger ToPointInteger()
         {
             return this;
         }
