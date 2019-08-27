@@ -38,7 +38,7 @@ namespace SturdyTribble.Primitive
             => new PointPolar(a, fn(r));
 
         public override string ToString()
-            => "(" + a + ", " + r + ")";
+            => $"({a}, {r})";
 
         public PointInteger ToPointInteger()
             => new PointInteger(this);

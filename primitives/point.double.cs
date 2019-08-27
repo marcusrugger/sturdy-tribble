@@ -56,7 +56,7 @@ namespace SturdyTribble.Primitive
             => new PointDouble(scale.x * x, scale.y * y);
 
         public override string ToString()
-            => "(" + x + ", " + y + ")";
+            => $"({x}, {y})";
 
         public PointInteger ToPointInteger()
             => new PointInteger(this);

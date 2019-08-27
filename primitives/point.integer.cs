@@ -41,7 +41,7 @@ namespace SturdyTribble.Primitive
             => new PointInteger(this.x + x, this.y + y);
 
         public override string ToString()
-            => "(" + x + ", " + y + ")";
+            => $"({x}, {y})";
 
         public PointInteger ToPointInteger()
             => this;
