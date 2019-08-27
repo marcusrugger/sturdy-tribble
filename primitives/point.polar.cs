@@ -35,29 +35,19 @@ namespace SturdyTribble.Primitive
         }
 
         public PointPolar TransformR(Func<double, double> fn)
-        {
-            return new PointPolar(a, fn(r));
-        }
+            => new PointPolar(a, fn(r));
 
         public override string ToString()
-        {
-            return "(" + a + ", " + r + ")";
-        }
+            => "(" + a + ", " + r + ")";
 
         public PointInteger ToPointInteger()
-        {
-            return new PointInteger(this);
-        }
+            => new PointInteger(this);
 
         public PointPolar ToPointPolar()
-        {
-            return this;
-        }
+            => this;
 
         public PointDouble ToPointDouble()
-        {
-            return new PointDouble(this);
-        }
+            => new PointDouble(this);
 
         public double A { get { return a; } }
         public double R { get { return r; } }

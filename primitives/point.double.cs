@@ -38,56 +38,36 @@ namespace SturdyTribble.Primitive
         }
 
         public static PointDouble operator +(PointDouble ls, PointDouble rs)
-        {
-            return new PointDouble(ls.x + rs.x, ls.y + rs.y);
-        }
+            => new PointDouble(ls.x + rs.x, ls.y + rs.y);
 
         public static PointDouble operator -(PointDouble ls, PointDouble rs)
-        {
-            return new PointDouble(ls.x - rs.x, ls.y - rs.y);
-        }
+            => new PointDouble(ls.x - rs.x, ls.y - rs.y);
 
         public PointDouble Offset(double dx, double dy)
-        {
-            return new PointDouble(x + dx, y + dy);
-        }
+            => new PointDouble(x + dx, y + dy);
 
         public PointDouble Offset(PointDouble other)
-        {
-            return new PointDouble(x + other.x, y + other.y);
-        }
+            => new PointDouble(x + other.x, y + other.y);
 
         public PointDouble Scale(double scale)
-        {
-            return new PointDouble(scale * x, scale * y);
-        }
+            => new PointDouble(scale * x, scale * y);
 
         public PointDouble Scale(PointDouble scale)
-        {
-            return new PointDouble(scale.x * x, scale.y * y);
-        }
+            => new PointDouble(scale.x * x, scale.y * y);
 
         public override string ToString()
-        {
-            return "(" + x + ", " + y + ")";
-        }
+            => "(" + x + ", " + y + ")";
 
         public PointInteger ToPointInteger()
-        {
-            return new PointInteger(this);
-        }
+            => new PointInteger(this);
 
         public PointPolar ToPointPolar()
-        {
-            return new PointPolar(this);
-        }
+            => new PointPolar(this);
 
         public PointDouble ToPointDouble()
-        {
-            return this;
-        }
+            => this;
 
-        public double X { get { return x; } }
-        public double Y { get { return y; } }
+        public double X => x;
+        public double Y => y;
     }
 }

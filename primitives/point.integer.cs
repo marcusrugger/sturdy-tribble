@@ -35,34 +35,22 @@ namespace SturdyTribble.Primitive
         }
 
         public PointInteger Offset(PointInteger p)
-        {
-            return new PointInteger(x + p.x, y + p.y);
-        }
+            => new PointInteger(x + p.x, y + p.y);
 
         public PointInteger Offset(int x, int y)
-        {
-            return new PointInteger(this.x + x, this.y + y);
-        }
+            => new PointInteger(this.x + x, this.y + y);
 
         public override string ToString()
-        {
-            return "(" + x + ", " + y + ")";
-        }
+            => "(" + x + ", " + y + ")";
 
         public PointInteger ToPointInteger()
-        {
-            return this;
-        }
+            => this;
 
         public PointPolar ToPointPolar()
-        {
-            return new PointPolar(this);
-        }
+            => new PointPolar(this);
 
         public PointDouble ToPointDouble()
-        {
-            return new PointDouble(this);
-        }
+            => new PointDouble(this);
 
         public int X { get { return x; } }
         public int Y { get { return y; } }
