@@ -31,7 +31,7 @@ namespace SturdyTribble.Primitive
         public PointPolar(PointDouble p)
         {
             this.a = Algorithms.SafeAtan(p);
-            this.r = Math.Sqrt(p.X * p.X + p.Y * p.Y);
+            this.r = Algorithms.PythagoreanTheorem(p);
         }
 
         public PointPolar TransformR(Func<double, double> fn)

@@ -5,22 +5,22 @@ namespace SturdyTribble.Primitive
     public class Algorithms
     {
         public static double ToRadians(double degrees)
-        {
-            return Math.PI * degrees / 180.0;
-        }
+            => Math.PI * degrees / 180.0;
 
         public static double ToDegrees(double radians)
-        {
-            return 180.0 * radians / Math.PI;
-        }
+            => 180.0 * radians / Math.PI;
+
+        public static double PythagoreanTheorem(double x, double y)
+            => Math.Sqrt(x * x + y * y);
+
+        public static double PythagoreanTheorem(PointDouble p)
+            => PythagoreanTheorem(p.X, p.Y);
 
         public static double SafeAtan(PointDouble p)
-        {
-            if (Math.Abs(p.X) > 1e-9)
-                return AtanByQuadrant(p);
-            else
-                return AtanPointOnYAxis(p);
-        }
+            => Math.Abs(p.X) < 1e-9 ? AtanPointOnYAxis(p) : AtanByQuadrant(p);
+
+        private static double AtanPointOnYAxis(PointDouble p)
+            => p.Y >= 0.0 ? Math.PI / 2.0 : 3.0 * Math.PI / 2.0;
 
         private static double AtanByQuadrant(PointDouble p)
         {
@@ -32,14 +32,6 @@ namespace SturdyTribble.Primitive
                 result += 2 * Math.PI;
 
             return result;
-        }
-
-        private static double AtanPointOnYAxis(PointDouble p)
-        {
-            if (p.Y >= 0.0)
-                return Math.PI / 2.0;
-            else
-                return 3.0 * Math.PI / 2.0;
         }
     }
 }
