@@ -34,20 +34,15 @@ namespace SturdyTribble.Primitive
             this.r = Algorithms.PythagoreanTheorem(p);
         }
 
+        public static implicit operator PointPolar(PointInteger p) => new PointPolar(p);
+        public static implicit operator PointPolar(PointDouble p) => new PointPolar(p);
+
+        public override string ToString() => $"({a}, {r})";
+        public PointInteger ToPointInteger() => new PointInteger(this);
+        public PointDouble ToPointDouble() => new PointDouble(this);
+
         public PointPolar TransformR(Func<double, double> fn)
             => new PointPolar(a, fn(r));
-
-        public override string ToString()
-            => $"({a}, {r})";
-
-        public PointInteger ToPointInteger()
-            => new PointInteger(this);
-
-        public PointPolar ToPointPolar()
-            => this;
-
-        public PointDouble ToPointDouble()
-            => new PointDouble(this);
 
         public double A => a;
         public double R => r;

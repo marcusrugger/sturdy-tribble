@@ -37,6 +37,13 @@ namespace SturdyTribble.Primitive
             y = p.Y;
         }
 
+        public static implicit operator PointDouble(PointInteger p) => new PointDouble(p);
+        public static implicit operator PointDouble(PointPolar p) => new PointDouble(p);
+
+        public override string ToString() => $"({x}, {y})";
+        public PointInteger ToPointInteger() => new PointInteger(this);
+        public PointPolar ToPointPolar() => new PointPolar(this);
+
         public static PointDouble operator +(PointDouble ls, PointDouble rs)
             => new PointDouble(ls.x + rs.x, ls.y + rs.y);
 
@@ -54,18 +61,6 @@ namespace SturdyTribble.Primitive
 
         public PointDouble Scale(PointDouble scale)
             => new PointDouble(scale.x * x, scale.y * y);
-
-        public override string ToString()
-            => $"({x}, {y})";
-
-        public PointInteger ToPointInteger()
-            => new PointInteger(this);
-
-        public PointPolar ToPointPolar()
-            => new PointPolar(this);
-
-        public PointDouble ToPointDouble()
-            => this;
 
         public double X => x;
         public double Y => y;
