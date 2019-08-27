@@ -30,36 +30,8 @@ namespace SturdyTribble.Primitive
 
         public PointPolar(PointDouble p)
         {
-            this.a = SafeAtan(p);
+            this.a = Algorithms.SafeAtan(p);
             this.r = Math.Sqrt(p.X * p.X + p.Y * p.Y);
-        }
-
-        private double SafeAtan(PointDouble p)
-        {
-            if (Math.Abs(p.X) > 1e-9)
-                return AtanByQuadrant(p);
-            else
-                return AtanPointOnYAxis(p);
-        }
-
-        private double AtanByQuadrant(PointDouble p)
-        {
-            double result = Math.Atan(p.Y / p.X);
-
-            if (p.X < 0.0)
-                result += Math.PI;
-            else if (p.Y < 0.0)
-                result += 2*Math.PI;
-
-            return result;
-        }
-
-        private double AtanPointOnYAxis(PointDouble p)
-        {
-            if (p.Y >= 0.0)
-                return Math.PI / 2.0;
-            else
-                return 3.0 * Math.PI / 2.0;
         }
 
         public PointPolar TransformR(Func<double, double> fn)
