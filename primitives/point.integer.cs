@@ -52,7 +52,7 @@ namespace SturdyTribble.Primitive
         public PointDouble ToPointDouble()
             => new PointDouble(this);
 
-        public int X { get { return x; } }
-        public int Y { get { return y; } }
+        public int X => x;
+        public int Y => y;
     }
 }

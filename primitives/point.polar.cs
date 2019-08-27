@@ -49,8 +49,8 @@ namespace SturdyTribble.Primitive
         public PointDouble ToPointDouble()
             => new PointDouble(this);
 
-        public double A { get { return a; } }
-        public double R { get { return r; } }
+        public double A => a;
+        public double R => r;
     }
 
 }
