@@ -26,6 +26,7 @@ namespace SturdyTribble.Primitive.Tests
             var point1 = new PointDouble(ax, ay);
             var point2 = new PointDouble(bx, by);
             var actual = point1 + point2;
+
             Assert.AreEqual(ax + bx, actual.X);
             Assert.AreEqual(ay + by, actual.Y);
         }
@@ -41,6 +42,7 @@ namespace SturdyTribble.Primitive.Tests
             var point1 = new PointDouble(ax, ay);
             var point2 = new PointDouble(bx, by);
             var actual = point1 - point2;
+
             Assert.AreEqual(ax - bx, actual.X);
             Assert.AreEqual(ay - by, actual.Y);
         }
