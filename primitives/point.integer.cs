@@ -41,6 +41,9 @@ namespace SturdyTribble.Primitive
         public PointDouble ToPointDouble() => new PointDouble(this);
         public PointPolar ToPointPolar() => new PointPolar(this);
 
+        public static PointInteger operator +(PointInteger ls, PointInteger rs)
+            => new PointInteger(ls.x + rs.x, ls.y + rs.y);
+
         public PointInteger Offset(PointInteger p)
             => new PointInteger(x + p.x, y + p.y);
 
