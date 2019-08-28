@@ -24,5 +24,15 @@ namespace SturdyTribble.Primitive.Tests
             Assert.AreEqual(3 + 7, actual.X);
             Assert.AreEqual(5 + 11, actual.Y);
         }
+
+        [TestMethod]
+        public void Subtract_two_points()
+        {
+            var point1 = new PointInteger(3, 5);
+            var point2 = new PointInteger(7, 11);
+            var actual = point1 - point2;
+            Assert.AreEqual(3 - 7, actual.X);
+            Assert.AreEqual(5 - 11, actual.Y);
+        }
     }
 }
