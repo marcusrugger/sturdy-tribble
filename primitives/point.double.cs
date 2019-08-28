@@ -6,6 +6,9 @@ namespace SturdyTribble.Primitive
     {
         readonly double x;
         readonly double y;
+
+        public double X => x;
+        public double Y => y;
         
         public PointDouble()
         {
@@ -61,8 +64,5 @@ namespace SturdyTribble.Primitive
 
         public PointDouble Scale(PointDouble scale)
             => new PointDouble(scale.x * x, scale.y * y);
-
-        public double X => x;
-        public double Y => y;
     }
 }

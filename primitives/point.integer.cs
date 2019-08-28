@@ -7,6 +7,9 @@ namespace SturdyTribble.Primitive
         readonly int x;
         readonly int y;
 
+        public double X => x;
+        public double Y => y;
+
         public PointInteger()
         {
             x = 0;
@@ -52,8 +55,5 @@ namespace SturdyTribble.Primitive
 
         public PointInteger Offset(int x, int y)
             => new PointInteger(this.x + x, this.y + y);
-
-        public int X => x;
-        public int Y => y;
     }
 }

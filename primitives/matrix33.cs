@@ -6,6 +6,8 @@ namespace SturdyTribble.Primitive
     {
         readonly double[,] matrix;
 
+        public double[,] Matrix => matrix;
+
         public static Matrix33 Scaling(PointDouble scale)
         {
             double[,] matrix = new double[3,3];
@@ -93,8 +95,6 @@ namespace SturdyTribble.Primitive
         }
         
         public Matrix33(double[,] matrix) => this.matrix = matrix;
-
-        public double[,] Matrix => matrix;
 
         public PointDouble Transform(PointDouble p)
         {

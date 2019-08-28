@@ -7,6 +7,9 @@ namespace SturdyTribble.Primitive
         readonly double a;
         readonly double r;
 
+        public double A => a;
+        public double R => r;
+
         public PointPolar()
         {
             a = 0;
@@ -43,9 +46,6 @@ namespace SturdyTribble.Primitive
 
         public PointPolar TransformR(Func<double, double> fn)
             => new PointPolar(a, fn(r));
-
-        public double A => a;
-        public double R => r;
     }
 
 }
