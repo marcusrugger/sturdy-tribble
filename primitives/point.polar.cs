@@ -33,7 +33,7 @@ namespace SturdyTribble.Primitive
 
         public PointPolar(PointDouble p)
         {
-            this.a = Algorithms.SafeAtan(p);
+            this.a = Math.Atan2(p.Y, p.X);
             this.r = Algorithms.PythagoreanTheorem(p);
         }
 
