@@ -44,5 +44,24 @@ namespace SturdyTribble.Primitive.Tests
             Assert.AreEqual(0.0, translateM.Matrix[2,1]);
             Assert.AreEqual(1.0, translateM.Matrix[2,2]);
         }
+
+        [TestMethod]
+        public void Rotation()
+        {
+            var rotationA = Algorithms.ToRadians(30);
+            var rotationM = Matrix33.Rotation(rotationA);
+
+            Assert.AreEqual( Math.Cos(rotationA), rotationM.Matrix[0,0]);
+            Assert.AreEqual(-Math.Sin(rotationA), rotationM.Matrix[0,1]);
+            Assert.AreEqual( 0.0,                 rotationM.Matrix[0,2]);
+
+            Assert.AreEqual( Math.Sin(rotationA), rotationM.Matrix[1,0]);
+            Assert.AreEqual( Math.Cos(rotationA), rotationM.Matrix[1,1]);
+            Assert.AreEqual( 0.0,                 rotationM.Matrix[1,2]);
+
+            Assert.AreEqual(0.0, rotationM.Matrix[2,0]);
+            Assert.AreEqual(0.0, rotationM.Matrix[2,1]);
+            Assert.AreEqual(1.0, rotationM.Matrix[2,2]);
+        }
     }
 }
