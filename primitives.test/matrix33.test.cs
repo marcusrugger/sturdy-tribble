@@ -128,5 +128,24 @@ namespace SturdyTribble.Primitive.Tests
             Assert.AreEqual(expectedY, pointC.X, precision);
             Assert.AreEqual(expectedX, pointC.Y, precision);
         }
+
+        [TestMethod]
+        public void TransformationMatrix()
+        {
+            var scale = new PointDouble(2, 2);
+            var offset = new PointDouble(0, 1);
+            var angle = Algorithms.ToRadians(45);
+            var matrix = Matrix33.CreateMatrix(scale, offset, angle);
+            var pointA = new PointDouble(1, 0);
+            var pointB = matrix.Transform(pointA);
+
+            Console.WriteLine($"pointB: {pointB}");
+
+            double expectedX = Math.Sqrt(2);
+            double expectedY = Math.Sqrt(2) + 1;
+            double precision = 0.000000001;
+            Assert.AreEqual(expectedX, pointB.X, precision);
+            Assert.AreEqual(expectedY, pointB.Y, precision);
+        }
     }
 }
