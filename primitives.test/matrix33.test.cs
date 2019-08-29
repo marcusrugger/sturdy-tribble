@@ -82,5 +82,25 @@ namespace SturdyTribble.Primitive.Tests
             Assert.AreEqual(0.0, pointC.X, precision);
             Assert.AreEqual(1.0, pointC.Y, precision);
         }
+
+        [TestMethod]
+        public void Rotate_point_30_degrees()
+        {
+            var rotationA = Algorithms.ToRadians(30);
+            var rotationM = Matrix33.Rotation(rotationA);
+
+            var pointA = new PointDouble(1.0, 0.0);
+            var pointB = rotationM.Transform(pointA);
+
+            var expectedX = Math.Sqrt(3.0) / 2.0;
+            var expectedY = 0.5;
+            var precision = 0.000000001;
+            Assert.AreEqual(expectedX, pointB.X, precision);
+            Assert.AreEqual(expectedY, pointB.Y, precision);
+
+            var pointC = rotationM.Transform(pointB);
+            Assert.AreEqual(expectedY, pointC.X, precision);
+            Assert.AreEqual(expectedX, pointC.Y, precision);
+        }
     }
 }
