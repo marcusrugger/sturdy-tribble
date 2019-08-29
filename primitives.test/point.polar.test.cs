@@ -28,5 +28,20 @@ namespace SturdyTribble.Primitive.Tests
                 Assert.AreEqual(expectedR, polar.R, precision);
             }
         }
+
+        [TestMethod]
+        public void Add_two_polar_points()
+        {
+            var polarA = new PointPolar(Algorithms.ToRadians(30), 1);
+            var polarB = new PointPolar(Algorithms.ToRadians(60), 1);
+            var polarC = polarA + polarB;
+
+            Console.WriteLine($"Polar point: {polarC}");
+            var expectedA = Math.PI/4;
+            var side = Math.Sqrt(3.0)/2.0 + 0.5;
+            var expectedR = Math.Sqrt(2.0 * side * side);
+            Assert.AreEqual(expectedA, polarC.A);
+            Assert.AreEqual(expectedR, polarC.R);
+        }
     }
 }
