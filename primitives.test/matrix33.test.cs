@@ -65,6 +65,32 @@ namespace SturdyTribble.Primitive.Tests
         }
 
         [TestMethod]
+        public void Scale_point()
+        {
+            var scale = new PointDouble(3, 5);
+            var matrix = Matrix33.Scaling(scale);
+            var pointA = new PointDouble(7, 11);
+            var pointB = matrix.Transform(pointA);
+            var pointC = pointA.Scale(scale);
+
+            Assert.AreEqual(pointC.X, pointB.X);
+            Assert.AreEqual(pointC.Y, pointB.Y);
+        }
+
+        [TestMethod]
+        public void Translate_point()
+        {
+            var offset = new PointDouble(3, 5);
+            var matrix = Matrix33.Translation(offset);
+            var pointA = new PointDouble(7, 11);
+            var pointB = matrix.Transform(pointA);
+            var pointC = pointA + offset;
+
+            Assert.AreEqual(pointC.X, pointB.X);
+            Assert.AreEqual(pointC.Y, pointB.Y);
+        }
+
+        [TestMethod]
         public void Rotate_point_45_degrees()
         {
             var rotationA = Algorithms.ToRadians(45);
