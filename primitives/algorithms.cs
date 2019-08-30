@@ -34,14 +34,10 @@ namespace SturdyTribble.Primitive
             return result;
         }
 
-        public double SumForA(PointPolar a, PointPolar b)
-        {
-            return a.A + Math.Atan2(b.R * Math.Sin(b.A - a.A), a.R + b.R * Math.Cos(b.A - a.A));
-        }
+        public static double SumForA(PointPolar a, PointPolar b)
+            => a.A + Math.Atan2(b.R * Math.Sin(b.A - a.A), a.R + b.R * Math.Cos(b.A - a.A));
 
-        public double SumForR(PointPolar a, PointPolar b)
-        {
-            return Math.Sqrt(a.R * a.R + b.R * b.R + 2 * a.R * b.R * Math.Cos(b.A - a.A));
-        }
+        public static double SumForR(PointPolar a, PointPolar b)
+            => Math.Sqrt(a.R * a.R + b.R * b.R + 2 * a.R * b.R * Math.Cos(b.A - a.A));
     }
 }
