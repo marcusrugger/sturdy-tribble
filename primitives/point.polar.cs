@@ -44,6 +44,14 @@ namespace SturdyTribble.Primitive
         public PointInteger ToPointInteger() => new PointInteger(this);
         public PointDouble ToPointDouble() => new PointDouble(this);
 
+        public static PointPolar operator +(PointPolar ls, PointPolar rs)
+        {
+            var lsp = ls.ToPointDouble();
+            var rsp = rs.ToPointDouble();
+            var sum = lsp + rsp;
+            return sum.ToPointPolar();
+        }
+
         public PointPolar TransformR(Func<double, double> fn)
             => new PointPolar(a, fn(r));
     }
