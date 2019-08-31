@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SturdyTribble.Primitive;
+using System;
 
 namespace SturdyTribble.Primitive.Tests
 {
@@ -45,6 +46,14 @@ namespace SturdyTribble.Primitive.Tests
 
             Assert.AreEqual(ax - bx, actual.X);
             Assert.AreEqual(ay - by, actual.Y);
+        }
+
+        [TestMethod]
+        public void TestTypecastFromPoint()
+        {
+            var polar = new PointPolar(Algorithms.ToRadians(30), 1);
+            var cast = (PointDouble)polar;
+            Assert.AreEqual(Math.Sqrt(3)/2, cast.X, 0.000000001);
         }
     }
 }

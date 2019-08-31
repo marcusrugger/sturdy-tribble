@@ -39,6 +39,7 @@ namespace SturdyTribble.Primitive
             blue = rgba.A * rgba.B;
         }
 
+        public override string ToString() => $"({red}, {green}, {blue})";
         public override ColorRgb ToRgb() => this;
         public override ColorRgba ToRgba() => new ColorRgba(this);
 

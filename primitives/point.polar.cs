@@ -2,7 +2,7 @@ using System;
 
 namespace SturdyTribble.Primitive
 {
-    public class PointPolar
+    public class PointPolar : Point
     {
         readonly double a;
         readonly double r;
@@ -29,7 +29,7 @@ namespace SturdyTribble.Primitive
         }
 
         public PointPolar(PointInteger p) : this(p.ToPointDouble())
-        {}
+        { }
 
         public PointPolar(PointDouble p)
         {
@@ -41,8 +41,9 @@ namespace SturdyTribble.Primitive
         public static implicit operator PointPolar(PointDouble p) => new PointPolar(p);
 
         public override string ToString() => $"({a}, {r})";
-        public PointInteger ToPointInteger() => new PointInteger(this);
-        public PointDouble ToPointDouble() => new PointDouble(this);
+        public override PointInteger ToPointInteger() => (PointInteger)this;
+        public override PointDouble ToPointDouble() => (PointDouble)this;
+        public override PointPolar ToPointPolar() => this;
 
         public static PointPolar operator +(PointPolar ls, PointPolar rs)
         {
