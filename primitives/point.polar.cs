@@ -4,19 +4,19 @@ namespace SturdyTribble.Primitive
 {
     public class PointPolar : Point
     {
-        readonly double a;
+        readonly Turn a;
         readonly double r;
 
-        public double A => a;
+        public Turn A => a;
         public double R => r;
 
         public PointPolar()
         {
-            a = 0;
+            a = Turn.FromTurns(0);
             r = 0;
         }
 
-        public PointPolar(double a, double r)
+        public PointPolar(Turn a, double r)
         {
             this.a = a;
             this.r = r;
@@ -33,7 +33,7 @@ namespace SturdyTribble.Primitive
 
         public PointPolar(PointDouble p)
         {
-            this.a = Math.Atan2(p.Y, p.X);
+            this.a = Turn.Atan2(p.Y, p.X);
             this.r = Algorithms.PythagoreanTheorem(p);
         }
 

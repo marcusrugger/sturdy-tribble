@@ -51,7 +51,7 @@ namespace SturdyTribble.Primitive.Tests
         [TestMethod]
         public void TestTypecastFromPoint()
         {
-            var polar = new PointPolar(Algorithms.ToRadians(30), 1);
+            var polar = new PointPolar(Turn.FromDegrees(30), 1);
             var cast = (PointDouble)polar;
             Assert.AreEqual(Math.Sqrt(3)/2, cast.X, 0.000000001);
         }
