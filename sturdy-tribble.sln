@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "primitives", "primitives\pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "primitives.test", "primitives.test\primitives.test.csproj", "{4985E959-9FD5-4E1F-AE45-6B8B2AC881D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "core", "core\core.csproj", "{48AC3A58-E502-4B17-86BD-E83979E38242}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +46,17 @@ Global
 		{4985E959-9FD5-4E1F-AE45-6B8B2AC881D1}.Release|x64.Build.0 = Release|Any CPU
 		{4985E959-9FD5-4E1F-AE45-6B8B2AC881D1}.Release|x86.ActiveCfg = Release|Any CPU
 		{4985E959-9FD5-4E1F-AE45-6B8B2AC881D1}.Release|x86.Build.0 = Release|Any CPU
+		{48AC3A58-E502-4B17-86BD-E83979E38242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48AC3A58-E502-4B17-86BD-E83979E38242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48AC3A58-E502-4B17-86BD-E83979E38242}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{48AC3A58-E502-4B17-86BD-E83979E38242}.Debug|x64.Build.0 = Debug|Any CPU
+		{48AC3A58-E502-4B17-86BD-E83979E38242}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{48AC3A58-E502-4B17-86BD-E83979E38242}.Debug|x86.Build.0 = Debug|Any CPU
+		{48AC3A58-E502-4B17-86BD-E83979E38242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48AC3A58-E502-4B17-86BD-E83979E38242}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48AC3A58-E502-4B17-86BD-E83979E38242}.Release|x64.ActiveCfg = Release|Any CPU
+		{48AC3A58-E502-4B17-86BD-E83979E38242}.Release|x64.Build.0 = Release|Any CPU
+		{48AC3A58-E502-4B17-86BD-E83979E38242}.Release|x86.ActiveCfg = Release|Any CPU
+		{48AC3A58-E502-4B17-86BD-E83979E38242}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -13,9 +13,9 @@ namespace SturdyTribble.Primitive.Tests
             float greyscale = 0.25f;
             var color = new ColorRgba(greyscale);
 
-            Assert.AreEqual(greyscale, color.Red);
-            Assert.AreEqual(greyscale, color.Green);
-            Assert.AreEqual(greyscale, color.Blue);
+            Assert.AreEqual(greyscale, color.R);
+            Assert.AreEqual(greyscale, color.G);
+            Assert.AreEqual(greyscale, color.B);
         }
 
         [TestMethod]
@@ -25,10 +25,10 @@ namespace SturdyTribble.Primitive.Tests
             var background = new ColorRgba(0f, 1f, 0f, 1f);
             var result = background + foreground;
 
-            Assert.AreEqual(0.75f, result.Red);
-            Assert.AreEqual(0.25f, result.Green);
-            Assert.AreEqual(0.00f, result.Blue);
-            Assert.AreEqual(1.00f, result.Alpha);
+            Assert.AreEqual(0.75f, result.R);
+            Assert.AreEqual(0.25f, result.G);
+            Assert.AreEqual(0.00f, result.B);
+            Assert.AreEqual(1.00f, result.A);
         }
     }
 }

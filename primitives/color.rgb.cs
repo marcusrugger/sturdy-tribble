@@ -2,31 +2,15 @@ using System;
 
 namespace SturdyTribble.Primitive
 {
-    public class ColorRgb
+    public class ColorRgb : Color
     {
-        public class Color
-        {
-            public static readonly ColorRgb Black   = new ColorRgb( 0.00f );
-            public static readonly ColorRgb DkGray  = new ColorRgb( 0.25f );
-            public static readonly ColorRgb Gray    = new ColorRgb( 0.50f );
-            public static readonly ColorRgb LtGray  = new ColorRgb( 0.75f );
-            public static readonly ColorRgb White   = new ColorRgb( 1.00f );
-
-            public static readonly ColorRgb Red     = new ColorRgb( 1.0f, 0.0f, 0.0f );
-            public static readonly ColorRgb Green   = new ColorRgb( 0.0f, 1.0f, 0.0f );
-            public static readonly ColorRgb Blue    = new ColorRgb( 0.0f, 0.0f, 1.0f );
-            public static readonly ColorRgb Cyan    = new ColorRgb( 0.0f, 1.0f, 1.0f );
-            public static readonly ColorRgb Magenta = new ColorRgb( 1.0f, 0.0f, 1.0f );
-            public static readonly ColorRgb Yellow  = new ColorRgb( 1.0f, 1.0f, 0.0f );
-        }
-
         readonly float red;
         readonly float green;
         readonly float blue;
 
-        public float Red => red;
-        public float Green => green;
-        public float Blue => blue;
+        public float R => red;
+        public float G => green;
+        public float B => blue;
 
         public ColorRgb()
         { }
@@ -41,12 +25,22 @@ namespace SturdyTribble.Primitive
             this.blue = boxin(blue);
         }
 
+        public ColorRgb(ColorRgb other)
+        {
+            red = other.red;
+            green = other.green;
+            blue = other.blue;
+        }
+
         public ColorRgb(ColorRgba rgba)
         {
-            red = rgba.Alpha * rgba.Red;
-            green = rgba.Alpha * rgba.Green;
-            blue = rgba.Alpha * rgba.Blue;
+            red = rgba.A * rgba.R;
+            green = rgba.A * rgba.G;
+            blue = rgba.A * rgba.B;
         }
+
+        public override ColorRgb ToRgb() => this;
+        public override ColorRgba ToRgba() => new ColorRgba(this);
 
         public static ColorRgb operator +(ColorRgb dst, ColorRgb src) => Blend(src, dst);
         public static ColorRgb Blend(ColorRgb src, ColorRgb dst)

@@ -2,33 +2,17 @@ using System;
 
 namespace SturdyTribble.Primitive
 {
-    public class ColorRgba
+    public class ColorRgba : Color
     {
-        public class Color
-        {
-            public static readonly ColorRgba Black   = new ColorRgba( 0.00f );
-            public static readonly ColorRgba DkGray  = new ColorRgba( 0.25f );
-            public static readonly ColorRgba Gray    = new ColorRgba( 0.50f );
-            public static readonly ColorRgba LtGray  = new ColorRgba( 0.75f );
-            public static readonly ColorRgba White   = new ColorRgba( 1.00f );
-
-            public static readonly ColorRgba Red     = new ColorRgba( 1.0f, 0.0f, 0.0f );
-            public static readonly ColorRgba Green   = new ColorRgba( 0.0f, 1.0f, 0.0f );
-            public static readonly ColorRgba Blue    = new ColorRgba( 0.0f, 0.0f, 1.0f );
-            public static readonly ColorRgba Cyan    = new ColorRgba( 0.0f, 1.0f, 1.0f );
-            public static readonly ColorRgba Magenta = new ColorRgba( 1.0f, 0.0f, 1.0f );
-            public static readonly ColorRgba Yellow  = new ColorRgba( 1.0f, 1.0f, 0.0f );
-        }
-
         readonly float red;
         readonly float green;
         readonly float blue;
         readonly float alpha = 1.0f;
 
-        public float Red => red;
-        public float Green => green;
-        public float Blue => blue;
-        public float Alpha => alpha;
+        public float R => red;
+        public float G => green;
+        public float B => blue;
+        public float A => alpha;
 
         public ColorRgba()
         { }
@@ -44,11 +28,29 @@ namespace SturdyTribble.Primitive
             this.alpha = boxin(alpha);
         }
 
+        public ColorRgba(ColorRgba other)
+        {
+            red = other.red;
+            green = other.green;
+            blue = other.blue;
+            alpha = other.alpha;
+        }
+
+        public ColorRgba(ColorRgb other)
+        {
+            this.red = other.R;
+            this.green = other.G;
+            this.blue = other.B;
+        }
+
+        public override ColorRgb ToRgb() => new ColorRgb(this);
+        public override ColorRgba ToRgba() => this;
+
         public static ColorRgba operator +(ColorRgba dst, ColorRgba src) => Blend(src, dst);
         public static ColorRgba Blend(ColorRgba src, ColorRgba dst)
         {
             var outA = src.alpha + dst.alpha * (1f - src.alpha);
-            if (outA == 0f) return Color.Black;
+            if (outA == 0f) return Color.Black.ToRgba();
 
             var outR = (src.red * src.alpha + dst.red * dst.alpha * (1f - src.alpha)) / outA;
             var outG = (src.green * src.alpha + dst.green * dst.alpha * (1f - src.alpha)) / outA;
