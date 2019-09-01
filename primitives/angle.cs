@@ -17,16 +17,20 @@ namespace SturdyTribble.Primitive
         public static Angle FromDegrees(double degrees)
             => new Angle(degrees / 360.0);
 
+        public static Angle FromGradians(double gradians)
+            => new Angle(gradians / 400.0);
+
         private Angle(double turns) { _turns = turns; }
 
-        public static Angle operator +(Angle a, Angle b) => FromTurns(a._turns + b._turns);
-        public static Angle operator -(Angle a, Angle b) => FromTurns(a._turns - b._turns);
+        public static Angle operator +(Angle a, Angle b) => new Angle(a._turns + b._turns);
+        public static Angle operator -(Angle a, Angle b) => new Angle(a._turns - b._turns);
 
         public override string ToString() => _turns.ToString();
 
         public double Turns => _turns;
         public double Radians => Tau * _turns;
         public double Degrees => 360.0 * _turns;
+        public double Gradians => 400.0 * _turns;
 
         public double Sin => Math.Sin(Radians);
         public double Cos => Math.Cos(Radians);
