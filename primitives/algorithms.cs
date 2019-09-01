@@ -34,8 +34,8 @@ namespace SturdyTribble.Primitive
             return result;
         }
 
-        public static Turn SumForA(PointPolar a, PointPolar b)
-            => a.A + Turn.Atan2(b.R * (b.A - a.A).Sin, a.R + b.R * (b.A - a.A).Cos);
+        public static Angle SumForA(PointPolar a, PointPolar b)
+            => a.A + Angle.Atan2(b.R * (b.A - a.A).Sin, a.R + b.R * (b.A - a.A).Cos);
 
         public static double SumForR(PointPolar a, PointPolar b)
             => Math.Sqrt(a.R * a.R + b.R * b.R + 2 * a.R * b.R * (b.A - a.A).Cos);
