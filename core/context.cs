@@ -5,8 +5,8 @@ namespace SturdyTribble.Core
 {
     public interface Context
     {
-        void DrawPoint(Point p);
-        void DrawLine(Point a, Point b);
-        void DrawArc(Point point, double radius, double startAngle, double sweepAngle);
+        void DrawPoint(PointDouble p);
+        void DrawLine(PointDouble a, PointDouble b);
+        void DrawArc(PointDouble point, double radius, double startAngle, double sweepAngle);
     }
 }

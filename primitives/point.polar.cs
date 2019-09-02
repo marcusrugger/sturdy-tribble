@@ -2,19 +2,13 @@ using System;
 
 namespace SturdyTribble.Primitive
 {
-    public class PointPolar : Point
+    public struct PointPolar
     {
         public Angle a;
         public double r;
 
         public double X => r * a.Cos;
         public double Y => r * a.Sin;
-
-        public PointPolar()
-        {
-            a = Angle.FromTurns(0);
-            r = 0;
-        }
 
         public PointPolar(Angle a, double r)
         {
@@ -41,9 +35,8 @@ namespace SturdyTribble.Primitive
         public static implicit operator PointPolar(PointDouble p) => new PointPolar(p);
 
         public override string ToString() => $"({a}, {r})";
-        public override PointInteger ToPointInteger() => (PointInteger)this;
-        public override PointDouble ToPointDouble() => (PointDouble)this;
-        public override PointPolar ToPointPolar() => this;
+        public PointInteger ToPointInteger() => (PointInteger)this;
+        public PointDouble ToPointDouble() => (PointDouble)this;
 
         public static PointPolar operator +(PointPolar ls, PointPolar rs)
         {

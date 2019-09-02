@@ -2,18 +2,12 @@ using System;
 
 namespace SturdyTribble.Primitive
 {
-    public class PointDouble
+    public struct PointDouble
     {
         public double x, y;
 
         public Angle A => Angle.Atan2(y, x);
         public double R => Math.Sqrt(x * x + y * y);
-        
-        public PointDouble()
-        {
-            x = 0;
-            y = 0;
-        }
 
         public PointDouble(double x, double y)
         {
@@ -35,8 +29,8 @@ namespace SturdyTribble.Primitive
         
         public PointDouble(PointInteger p)
         {
-            x = p.X;
-            y = p.Y;
+            x = p.x;
+            y = p.y;
         }
 
         public static implicit operator PointDouble(PointInteger p) => new PointDouble(p);
