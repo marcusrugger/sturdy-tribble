@@ -4,11 +4,11 @@ namespace SturdyTribble.Primitive
 {
     public class PointPolar : Point
     {
-        readonly Angle a;
-        readonly double r;
+        public Angle a;
+        public double r;
 
-        public Angle A => a;
-        public double R => r;
+        public double X => r * a.Cos;
+        public double Y => r * a.Sin;
 
         public PointPolar()
         {
@@ -33,8 +33,8 @@ namespace SturdyTribble.Primitive
 
         public PointPolar(PointDouble p)
         {
-            this.a = Angle.Atan2(p.y, p.x);
-            this.r = Algorithms.PythagoreanTheorem(p);
+            this.a = p.A;
+            this.r = p.R;
         }
 
         public static implicit operator PointPolar(PointInteger p) => new PointPolar(p);

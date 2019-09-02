@@ -17,9 +17,9 @@ namespace SturdyTribble.Primitive
             => PythagoreanTheorem(p.x, p.y);
 
         public static Angle SumForA(PointPolar a, PointPolar b)
-            => a.A + Angle.Atan2(b.R * (b.A - a.A).Sin, a.R + b.R * (b.A - a.A).Cos);
+            => a.a + Angle.Atan2(b.r * (b.a - a.a).Sin, a.r + b.r * (b.a - a.a).Cos);
 
         public static double SumForR(PointPolar a, PointPolar b)
-            => Math.Sqrt(a.R * a.R + b.R * b.R + 2 * a.R * b.R * (b.A - a.A).Cos);
+            => Math.Sqrt(a.r * a.r + b.r * b.r + 2 * a.r * b.r * (b.a - a.a).Cos);
     }
 }

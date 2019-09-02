@@ -29,8 +29,8 @@ namespace SturdyTribble.Primitive
 
         public PointDouble(PointPolar pc)
         {
-            x = pc.R * pc.A.Cos;
-            y = pc.R * pc.A.Sin;
+            x = pc.X;
+            y = pc.Y;
         }
         
         public PointDouble(PointInteger p)

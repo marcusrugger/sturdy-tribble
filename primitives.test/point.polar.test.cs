@@ -24,8 +24,8 @@ namespace SturdyTribble.Primitive.Tests
                 var point = new PointDouble(x, y);
                 var polar = new PointPolar(point);
 
-                Assert.AreEqual(expectedA.Turns, polar.A.Turns, precision);
-                Assert.AreEqual(expectedR, polar.R, precision);
+                Assert.AreEqual(expectedA.Turns, polar.a.Turns, precision);
+                Assert.AreEqual(expectedR, polar.r, precision);
             }
         }
 
@@ -40,8 +40,8 @@ namespace SturdyTribble.Primitive.Tests
             var expectedA = Angle.FromTurns(1.0/8.0);
             var side = Math.Sqrt(3.0)/2.0 + 0.5;
             var expectedR = Math.Sqrt(2.0 * side * side);
-            Assert.AreEqual(expectedA.Turns, polarC.A.Turns);
-            Assert.AreEqual(expectedR, polarC.R);
+            Assert.AreEqual(expectedA.Turns, polarC.a.Turns);
+            Assert.AreEqual(expectedR, polarC.r);
         }
     }
 }
