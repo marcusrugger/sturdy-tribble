@@ -2,60 +2,52 @@ using System;
 
 namespace SturdyTribble.Primitive
 {
-    public class ColorRgba : Color
+    public struct ColorRgba
     {
-        readonly float red;
-        readonly float green;
-        readonly float blue;
-        readonly float alpha = 1.0f;
-
-        public float R => red;
-        public float G => green;
-        public float B => blue;
-        public float A => alpha;
-
-        public ColorRgba()
-        { }
+        public float R, G, B, A;
 
         public ColorRgba(float greyscale)
-            => red = green = blue = boxin(greyscale);
+        {
+            R = G = B = boxin(greyscale);
+            A = 1f;
+        }
 
         public ColorRgba(float red, float green, float blue, float alpha = 1.0f)
         {
-            this.red = boxin(red);
-            this.green = boxin(green);
-            this.blue = boxin(blue);
-            this.alpha = boxin(alpha);
+            this.R = boxin(red);
+            this.G = boxin(green);
+            this.B = boxin(blue);
+            this.A = boxin(alpha);
         }
 
         public ColorRgba(ColorRgba other)
         {
-            red = other.red;
-            green = other.green;
-            blue = other.blue;
-            alpha = other.alpha;
+            R = other.R;
+            G = other.G;
+            B = other.B;
+            A = other.A;
         }
 
         public ColorRgba(ColorRgb other)
         {
-            this.red = other.R;
-            this.green = other.G;
-            this.blue = other.B;
+            this.R = other.R;
+            this.G = other.G;
+            this.B = other.B;
+            this.A = 1f;
         }
 
-        public override string ToString() => $"({red}, {green}, {blue}, {alpha})";
-        public override ColorRgb ToRgb() => new ColorRgb(this);
-        public override ColorRgba ToRgba() => this;
+        public override string ToString() => $"({R}, {G}, {B}, {A})";
+        public ColorRgb ToRgb() => new ColorRgb(this);
 
         public static ColorRgba operator +(ColorRgba dst, ColorRgba src) => Blend(src, dst);
         public static ColorRgba Blend(ColorRgba src, ColorRgba dst)
         {
-            var outA = src.alpha + dst.alpha * (1f - src.alpha);
+            var outA = src.A + dst.A * (1f - src.A);
             if (outA == 0f) return Color.Black.ToRgba();
 
-            var outR = (src.red * src.alpha + dst.red * dst.alpha * (1f - src.alpha)) / outA;
-            var outG = (src.green * src.alpha + dst.green * dst.alpha * (1f - src.alpha)) / outA;
-            var outB = (src.blue * src.alpha + dst.blue * dst.alpha * (1f - src.alpha)) / outA;
+            var outR = (src.R * src.A + dst.R * dst.A * (1f - src.A)) / outA;
+            var outG = (src.G * src.A + dst.G * dst.A * (1f - src.A)) / outA;
+            var outB = (src.B * src.A + dst.B * dst.A * (1f - src.A)) / outA;
 
             return new ColorRgba(outR, outG, outB, outA);
         }
@@ -63,7 +55,23 @@ namespace SturdyTribble.Primitive
         public ColorRgba BlendWith(ColorRgba src)
             => Blend(src, this);
 
-        private float boxin(float value)
+        private static float boxin(float value)
             => value < 0.0f ? 0.0f : value > 1.0f ? 1.0f : value;
+
+        public struct Color
+        {
+            public static readonly ColorRgb Black   = new ColorRgb( 0.00f );
+            public static readonly ColorRgb DkGray  = new ColorRgb( 0.25f );
+            public static readonly ColorRgb Gray    = new ColorRgb( 0.50f );
+            public static readonly ColorRgb LtGray  = new ColorRgb( 0.75f );
+            public static readonly ColorRgb White   = new ColorRgb( 1.00f );
+
+            public static readonly ColorRgb Red     = new ColorRgb( 1.0f, 0.0f, 0.0f );
+            public static readonly ColorRgb Green   = new ColorRgb( 0.0f, 1.0f, 0.0f );
+            public static readonly ColorRgb Blue    = new ColorRgb( 0.0f, 0.0f, 1.0f );
+            public static readonly ColorRgb Cyan    = new ColorRgb( 0.0f, 1.0f, 1.0f );
+            public static readonly ColorRgb Magenta = new ColorRgb( 1.0f, 0.0f, 1.0f );
+            public static readonly ColorRgb Yellow  = new ColorRgb( 1.0f, 1.0f, 0.0f );
+        }
     }
 }

@@ -73,8 +73,8 @@ namespace SturdyTribble.Primitive.Tests
             var pointB = matrix.Transform(pointA);
             var pointC = pointA.Scale(scale);
 
-            Assert.AreEqual(pointC.X, pointB.X);
-            Assert.AreEqual(pointC.Y, pointB.Y);
+            Assert.AreEqual(pointC.x, pointB.x);
+            Assert.AreEqual(pointC.y, pointB.y);
         }
 
         [TestMethod]
@@ -86,8 +86,8 @@ namespace SturdyTribble.Primitive.Tests
             var pointB = matrix.Transform(pointA);
             var pointC = pointA + offset;
 
-            Assert.AreEqual(pointC.X, pointB.X);
-            Assert.AreEqual(pointC.Y, pointB.Y);
+            Assert.AreEqual(pointC.x, pointB.x);
+            Assert.AreEqual(pointC.y, pointB.y);
         }
 
         [TestMethod]
@@ -101,12 +101,12 @@ namespace SturdyTribble.Primitive.Tests
 
             var expected = Math.Sqrt(2.0) / 2.0;
             var precision = 0.000000001;
-            Assert.AreEqual(expected, pointB.X, precision);
-            Assert.AreEqual(expected, pointB.Y, precision);
+            Assert.AreEqual(expected, pointB.x, precision);
+            Assert.AreEqual(expected, pointB.y, precision);
 
             var pointC = rotationM.Transform(pointB);
-            Assert.AreEqual(0.0, pointC.X, precision);
-            Assert.AreEqual(1.0, pointC.Y, precision);
+            Assert.AreEqual(0.0, pointC.x, precision);
+            Assert.AreEqual(1.0, pointC.y, precision);
         }
 
         [TestMethod]
@@ -121,12 +121,12 @@ namespace SturdyTribble.Primitive.Tests
             var expectedX = Math.Sqrt(3.0) / 2.0;
             var expectedY = 0.5;
             var precision = 0.000000001;
-            Assert.AreEqual(expectedX, pointB.X, precision);
-            Assert.AreEqual(expectedY, pointB.Y, precision);
+            Assert.AreEqual(expectedX, pointB.x, precision);
+            Assert.AreEqual(expectedY, pointB.y, precision);
 
             var pointC = rotationM.Transform(pointB);
-            Assert.AreEqual(expectedY, pointC.X, precision);
-            Assert.AreEqual(expectedX, pointC.Y, precision);
+            Assert.AreEqual(expectedY, pointC.x, precision);
+            Assert.AreEqual(expectedX, pointC.y, precision);
         }
 
         [TestMethod]
@@ -144,8 +144,8 @@ namespace SturdyTribble.Primitive.Tests
             double expectedX = Math.Sqrt(2);
             double expectedY = Math.Sqrt(2) + 1;
             double precision = 0.000000001;
-            Assert.AreEqual(expectedX, pointB.X, precision);
-            Assert.AreEqual(expectedY, pointB.Y, precision);
+            Assert.AreEqual(expectedX, pointB.x, precision);
+            Assert.AreEqual(expectedY, pointB.y, precision);
         }
     }
 }

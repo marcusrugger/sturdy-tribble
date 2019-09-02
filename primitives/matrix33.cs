@@ -11,8 +11,8 @@ namespace SturdyTribble.Primitive
         public static Matrix33 Scaling(PointDouble scale)
         {
             double[,] matrix = new double[3,3];
-            matrix[0,0] = scale.X;
-            matrix[1,1] = scale.Y;
+            matrix[0,0] = scale.x;
+            matrix[1,1] = scale.y;
             matrix[2,2] = 1.0;
             return new Matrix33(matrix);
         }
@@ -21,8 +21,8 @@ namespace SturdyTribble.Primitive
         {
             double[,] matrix = new double[3,3];
             matrix[0,0] = matrix[1,1] = matrix[2,2] = 1.0;
-            matrix[0,2] = delta.X;
-            matrix[1,2] = delta.Y;
+            matrix[0,2] = delta.x;
+            matrix[1,2] = delta.y;
             return new Matrix33(matrix);
         }
 
@@ -98,8 +98,8 @@ namespace SturdyTribble.Primitive
 
         public PointDouble Transform(PointDouble p)
         {
-            double x = matrix[0,0] * p.X + matrix[0,1] * p.Y + matrix[0,2];
-            double y = matrix[1,0] * p.X + matrix[1,1] * p.Y + matrix[1,2];
+            double x = matrix[0,0] * p.x + matrix[0,1] * p.y + matrix[0,2];
+            double y = matrix[1,0] * p.x + matrix[1,1] * p.y + matrix[1,2];
             return new PointDouble(x, y);
         }
     }

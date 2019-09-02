@@ -2,13 +2,12 @@ using System;
 
 namespace SturdyTribble.Primitive
 {
-    public class PointDouble : Point
+    public class PointDouble
     {
-        readonly double x;
-        readonly double y;
+        public double x, y;
 
-        public double X => x;
-        public double Y => y;
+        public Angle A => Angle.Atan2(y, x);
+        public double R => Math.Sqrt(x * x + y * y);
         
         public PointDouble()
         {
@@ -44,9 +43,8 @@ namespace SturdyTribble.Primitive
         public static implicit operator PointDouble(PointPolar p) => new PointDouble(p);
 
         public override string ToString() => $"({x}, {y})";
-        public override PointInteger ToPointInteger() => (PointInteger)this;
-        public override PointDouble ToPointDouble() => this;
-        public override PointPolar ToPointPolar() => (PointPolar)this;
+        public PointInteger ToPointInteger() => (PointInteger)this;
+        public PointPolar ToPointPolar() => (PointPolar)this;
 
         public static PointDouble operator +(PointDouble ls, PointDouble rs)
             => new PointDouble(ls.x + rs.x, ls.y + rs.y);

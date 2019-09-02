@@ -33,8 +33,8 @@ namespace SturdyTribble.Primitive
 
         public PointInteger(PointDouble p)
         {
-            x = (int) (p.X + 0.5);
-            y = (int) (p.Y + 0.5);
+            x = (int) (p.x + 0.5);
+            y = (int) (p.y + 0.5);
         }
 
         public static implicit operator PointInteger(PointDouble p) => new PointInteger(p);

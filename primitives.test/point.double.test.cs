@@ -28,8 +28,8 @@ namespace SturdyTribble.Primitive.Tests
             var point2 = new PointDouble(bx, by);
             var actual = point1 + point2;
 
-            Assert.AreEqual(ax + bx, actual.X);
-            Assert.AreEqual(ay + by, actual.Y);
+            Assert.AreEqual(ax + bx, actual.x);
+            Assert.AreEqual(ay + by, actual.y);
         }
 
         [TestMethod]
@@ -44,8 +44,8 @@ namespace SturdyTribble.Primitive.Tests
             var point2 = new PointDouble(bx, by);
             var actual = point1 - point2;
 
-            Assert.AreEqual(ax - bx, actual.X);
-            Assert.AreEqual(ay - by, actual.Y);
+            Assert.AreEqual(ax - bx, actual.x);
+            Assert.AreEqual(ay - by, actual.y);
         }
 
         [TestMethod]
@@ -53,7 +53,7 @@ namespace SturdyTribble.Primitive.Tests
         {
             var polar = new PointPolar(Angle.FromTurns(1.0/12.0), 1);
             var cast = (PointDouble)polar;
-            Assert.AreEqual(Math.Sqrt(3)/2, cast.X, 0.000000001);
+            Assert.AreEqual(Math.Sqrt(3)/2, cast.x, 0.000000001);
         }
     }
 }

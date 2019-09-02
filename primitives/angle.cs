@@ -2,7 +2,7 @@ using System;
 
 namespace SturdyTribble.Primitive
 {
-    public class Angle
+    public struct Angle
     {
         public const double Pi = Math.PI;
         public const double Tau = 2 * Math.PI;
