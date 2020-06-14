@@ -55,5 +55,12 @@ namespace SturdyTribble.Primitive.Tests
             var cast = (PointDouble)polar;
             Assert.AreEqual(Math.Sqrt(3)/2, cast.x, 0.000000001);
         }
+
+        [TestMethod]
+        public void TestA()
+        {
+            var p = new PointDouble(Math.Sqrt(3.0)/2.0, 0.5);
+            Assert.AreEqual(30.0, p.A.Degrees, 0.000000001);
+        }
     }
 }
